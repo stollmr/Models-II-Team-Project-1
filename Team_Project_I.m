@@ -12,6 +12,12 @@ switch analizeChoice
         yearChoice = menu('Please select a year:',' )
     case 2
         countryChoice = menu('Please select a country:', 'America', 'Australia', 'Brazil', 'Canada', 'China', 'Cuba', 'Germany', 'India', 'Japan', 'Madagascar', 'Russia', 'Input Other');
+            switch countryChoice
+                case 12
+                    countryChoice = input('Please input a country: ', 's');
+                    while isempty(countryChoice) %Error catching
+                        countryChoice = input('Please input a country: ', 's');
+                    end
     case 3
         productionChoice = menu('Please select a production type:', 'Hyrdo','Solar','Wind','Nuclear','Total Production' )
 end
