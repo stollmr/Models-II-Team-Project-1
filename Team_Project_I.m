@@ -11,7 +11,7 @@ switch analizeChoice
     case 1
         yearChoice = menu('Please select a year:',' )
     case 2
-        countryChoice = menu('Please select a country:', ' )
+        countryChoice = menu('Please select a country:', 'America', 'Australia', 'Brazil', 'Canada', 'China', 'Cuba', 'Germany', 'India', 'Japan', 'Madagascar', 'Russia', 'Input Other');
     case 3
         productionChoice = menu('Please select a production type:', ' )
 end
