@@ -9,7 +9,40 @@ analizeChoice = menu('How would you like to analze the electricity data?','By Ye
 
 switch analizeChoice
     case 1
-        yearChoice = menu('Please select a year:',' )
+         yearChoice = input('Please input a year between 1990 and 2011 that you would like to analyze:');
+        chartChoice=menu('Please select how you would like to view this information.','Pie Chart of Power Used','Graphs of Contribuiters','Energy Production Chart');
+        switch chartChoice;
+            case 1
+                X=find(Electricity_Data.Hydro_Production >-9999 & Electricity_Data.Year==yearChoice);
+                HydroSum=sum(Electricity_Data.Hydro_Production(X));
+                
+                Y=find(Electricity_Data.Nuclear_Production >-9999 & Electricity_Data.Year==yearChoice);
+                NuclearSum=sum(Electricity_Data.Nuclear_Production(Y));
+                
+                Z=find(Electricity_Data.Solar_Production >-9999 & Electricity_Data.Year==yearChoice);
+                SolarSum=sum(Electricity_Data.Solar_Production(Z));
+                
+                W=find(Electricity_Data.Wind_Production >-9999 & Electricity_Data.Year==yearChoice);
+                WindSum=sum(Electricity_Data.Wind_Production(W));
+                
+                PieInfo= [HydroSum NuclearSum SolarSum WindSum];
+                
+                labels= {'Hydro','Nuclear','Solar','Wind'};
+                
+                pie(PieInfo,explode,labels);
+                    
+                case 2
+                case 3
+                case 4
+            end
+        elseif  yearChoice>2011 & yearChoice<1990; 
+            while yearChoice>2011 & yearChoice<1990;
+                
+                yearChoice =input('That value is a invalid year! Please input a year between 1990 and 2011 that you would like to analyze:');
+            end
+ 
+
+end
     case 2
         countryChoice = menu('Please select a country:', 'America', 'Australia', 'Brazil', 'Canada', 'China', 'Cuba', 'Germany', 'India', 'Japan', 'Madagascar', 'Russia', 'Input Other');
             if countryChoice == 12
