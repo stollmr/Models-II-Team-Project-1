@@ -5,9 +5,9 @@ clear;
 clc;
 load Electricity_Data.mat;
 
-analizeChoice = menu('How would you like to analze the electricity data?','By Year', 'By Country', 'By Production Type');
+analyzeChoice = menu('How would you like to analze the electricity data?','By Year', 'By Country', 'By Production Type');
 
-switch analizeChoice
+switch analyzeChoice
     case 1
         yearChoice = menu('Please select a year:',' )
     case 2
