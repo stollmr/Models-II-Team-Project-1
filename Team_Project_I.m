@@ -5,6 +5,8 @@ clear;
 clc;
 load Electricity_Data.mat;
 
+warning('off','all'); %Disables unneeded warning messages that may appear.
+
 analyzeChoice = menu('How would you like to analze the electricity data?','By Year', 'By Country', 'By Production Type');
 
 switch analyzeChoice
@@ -12,11 +14,21 @@ switch analyzeChoice
         yearChoice = menu('Please select a year:',' )
     case 2
         countryChoice = menu('Please select a country:', 'America', 'Australia', 'Brazil', 'Canada', 'China', 'Cuba', 'Germany', 'India', 'Japan', 'Madagascar', 'Russia', 'Input Other');
-            if countryChoice == 12
+            if countryChoice == 11
+                fprintf('Warning: Entries are case sensitive.\n\n');
                 countryChoice = input('Please input a country: ', 's');
                 while isempty(countryChoice) %Error catching
+                    clc;
+                    fprintf('Warning: Entries are case sensitive.\n\n');
                     countryChoice = input('Please input a country: ', 's');
                 end
+                while strcmp(countryChoice, Electricity_Data.Country) == 0 %Error catching
+                    clc;
+                    fprintf('Warning: Entries are case sensitive.\n\n');
+                    fprintf('Entry of "%s" is not a valid country.\n\nPlease input a valid country:', countryChoice);
+                    countryChoice = input(' ', 's');
+                    end
+                clc;
             elseif countryChoice == 1
                 countryChoice = 'United States';
             elseif countryChoice == 2
@@ -99,6 +111,10 @@ switch analyzeChoice
         title('Energy Surplus Per Year');
         xlabel('Year');ylabel('Energy (Million kWh)');
         end
+        
+        fprintf('Please maximize the display window.\n')
     case 3
         productionChoice = menu('Please select a production type:', 'Hyrdo','Solar','Wind','Nuclear','Total Production' )
 end
+
+warning('on','all'); %Reenables warnings just in case.
