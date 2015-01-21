@@ -13,7 +13,7 @@ Doctor_Bucks = val;
 
 warning('off','all'); %Disables unneeded warning messages that may appear.
 
-while Doctor_Bucks == Super_Awesome
+while Doctor_Bucks == Super_Awesome %Obligatory brown nosing
     
     while val == 0
         fprintf('KEEP THIS LINE HIDDEN\n');
