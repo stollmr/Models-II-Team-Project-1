@@ -14,7 +14,7 @@ Doctor_Bucks = val;
 warning('off','all'); %Disables unneeded warning messages that may appear.
 
 while Doctor_Bucks == Super_Awesome %Obligatory brown nosing
-    
+     
     while val == 0
         fprintf('KEEP THIS LINE HIDDEN\n');
         fprintf('Press any key to continue.\n*\n*\n');
@@ -197,7 +197,17 @@ while Doctor_Bucks == Super_Awesome %Obligatory brown nosing
             title('Energy Surplus Per Year');
             xlabel('Year');ylabel('Energy (Million kWh)');
             %end Energy surplus and deficit
-
+            
+            %Master Title
+            set(gcf,'NextPlot','add');
+            axes;
+            h = title(countryChoice);
+            set(gca,'Visible','off');
+            set(h,'Visible','on');
+            %Master Title
+            
+            %This shows the user the space in the command window that
+            %shouldn't be covered.
             fprintf('|------------------------------------|\n|     If charts are difficult        |\n|      to read, increase size,       |\n|       but do not cover this        | \n|               box.                 |\n| _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _|\n');
             
             nextChoice = menu('Now what would you like to do?','Analyze a year','Analyze another country','Analyze a production type');
@@ -247,6 +257,15 @@ while Doctor_Bucks == Super_Awesome %Obligatory brown nosing
                                                 title('Energy Surplus Per Year');
                                                 xlabel('Year');ylabel('Energy (Million kWh)');
                                                 %end Energy surplus and deficit
+                                                
+                                                %Master title
+                                                set(gcf,'NextPlot','add');
+                                                axes;
+                                                h = title(countryChoice);
+                                                set(gca,'Visible','off');
+                                                set(h,'Visible','on');
+                                                %Master title
+                                                
             elseif closeChoice == 3  % close only most recent
                 close
             elseif closeChoice == 4  % close EVERYTHING
@@ -268,3 +287,4 @@ while Doctor_Bucks == Super_Awesome %Obligatory brown nosing
 
 end
 warning('on','all'); %Reenables warnings just in case.
+
