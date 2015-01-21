@@ -95,9 +95,14 @@ while Doctor_Bucks == Super_Awesome %Obligatory brown nosing
                     end
                     while strcmp(countryChoice, Electricity_Data.Country) == 0 %Error catching || make sure country exists
                         clc;
-                        fprintf('Warning: Entries are case sensitive.\n\n');
-                        fprintf('Entry of "%s" is not a valid country.\n\nPlease input a valid country:', countryChoice);
-                        countryChoice = input(' ', 's');
+                        %Begin catch for Russia, 'cause it had to be special
+                        if strcmp(countryChoice,'Russia')
+                            countryChoice = 'Russian Federation';
+                        else   
+                            fprintf('Warning: Entries are case sensitive.\n\n');
+                            fprintf('Entry of "%s" is not a valid country.\n\nPlease input a valid country:', countryChoice);
+                            countryChoice = input(' ', 's');
+                        end
                     end
                     clc;
                 elseif countryChoice == 1
